@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="layui/css/layui.css">
+</head>
+<body>
+<!-- 
+<div class="layui-card-body">
+	<div class="layui-inline">
+	    <div class="layui-input-inline">
+			<input type="text" class="layui-input" id="code" placeholder="输入暗号">
+		</div>
+		<button class="layui-btn" id="go" style="float:right;">GO</button>
+	</div>
+</div>
+ -->
+<script type="text/javascript" src="layui/layui.js"></script>
+<script type="text/javascript">
+layui.use(['jquery','layer'],function(){
+	var $ = layui.jquery;
+	var layer = layui.layer;
+	var html = '<div class="layui-card-body"' +
+					'<div class="layui-inline">' +
+					    '<div class="layui-input-inline">' +
+							'<input type="text" class="layui-input" id="code" placeholder="输入暗号">' +
+						'</div>' +
+						'<button class="layui-btn" id="go" style="float:right;">GO</button>' +
+					'</div>' +
+				'</div>';
+
+    //示范一个公告层
+   layer.open({
+      type: 1,
+      title: false, //不显示标题栏
+      closeBtn: false,
+      area: '280px;',
+      shade: 0.8,
+      content: html,
+      success: function(layero){
+        layero.find('#go').on("click", function(){
+        	alert(layero.find('#code').val());
+        });
+      }
+    });
+ 	
+})
+</script>
+</body>
+</html>
